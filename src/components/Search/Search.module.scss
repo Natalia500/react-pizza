@@ -1,0 +1,66 @@
+.root {
+  position: relative;
+  left: -200px;
+}
+
+.input {
+  border: 2px solid rgb(0, 0, 0, 0.1);
+  padding: 5px 15px;
+  padding-left: 35px;
+  width: 200px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.icon_search {
+  width: 20px;
+  height: 20x;
+  position: absolute;
+  opacity: 0.4;
+  left: 10px;
+  top: 9px;
+}
+.icon_close {
+  width: 20px;
+  height: 20x;
+  position: absolute;
+  opacity: 0.4;
+  right: 10px;
+  top: 8px;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 1067px) {
+  .root {
+    left: -100px;
+  }
+  .input {
+    width: 150px;
+  }
+}
+
+@media (max-width: 770px) {
+  .root {
+    left: -40px;
+  }
+  .input {
+    width: 150px;
+  }
+}
+
+@media (max-width: 645px) {
+  .root {
+    left: 0px;
+  }
+  .input {
+    margin-top: 15px;
+  }
+  .icon_search {
+    top: 23px;
+  }
+  .icon_close {
+    top: 23px;
+  }
+}

@@ -1,0 +1,15 @@
+{
+    // Настройки Prettier
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.semi": true,
+  "prettier.bracketSameLine": true,
+  "prettier.printWidth": 100,
+
+  	// Настройки ESLint
+      "eslint.packageManager": "yarn",
+      "eslint.format.enable": true,
+      "eslint.alwaysShowStatus": true,
+        "editor.formatOnSave": true,
+}
