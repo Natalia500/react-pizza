@@ -1,13 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
 const Categories = ({ value, onClickCatagory }) => {
-  //const [pizzaIndex, setPizzaIndex] = useState(0);
+  const categoriesPizza = ["All", "Meat", "Vegetarian", "Grill"];
 
-  const categoriesPizza = ['All', 'Meat', 'Vegetarian', 'Grill'];
-
-  // const activeLink = (i) => {
-  //   setPizzaIndex(i);
-  // };
   return (
     <div className="categories">
       <ul>
@@ -15,7 +9,8 @@ const Categories = ({ value, onClickCatagory }) => {
           <li
             key={index}
             onClick={() => onClickCatagory(index)}
-            className={value == index ? 'active' : ''}>
+            className={value == index ? "active" : ""}
+          >
             {categoryName}
           </li>
         ))}

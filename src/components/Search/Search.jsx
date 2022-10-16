@@ -1,21 +1,20 @@
-import React from 'react';
-import debounce from 'lodash.debounce';
-import { useRef } from 'react';
-import { useContext } from 'react';
-import { SearchContext } from '../../App';
-import styles from './Search.module.scss';
-import { useCallback } from 'react';
-import { useState } from 'react';
+import React from "react";
+import debounce from "lodash.debounce";
+import { useRef } from "react";
+import { useContext } from "react";
+import { SearchContext } from "../../App";
+import styles from "./Search.module.scss";
+import { useCallback } from "react";
+import { useState } from "react";
 
 const Search = () => {
-  const [value, setValue] = useState('');
-  const { searchValue, setSearchValue } = useContext(SearchContext);
+  const [value, setValue] = useState("");
+  const { setSearchValue } = useContext(SearchContext);
   const inputRef = useRef();
 
   const onClearInput = () => {
-    setSearchValue('');
-    setValue('');
-    //document.querySelector('input').focus();
+    setSearchValue("");
+    setValue("");
     inputRef.current.focus();
   };
 
@@ -23,7 +22,7 @@ const Search = () => {
     debounce((str) => {
       setSearchValue(str);
     }, 500),
-    [],
+    []
   );
 
   const onChangeInput = (event) => {
@@ -41,7 +40,6 @@ const Search = () => {
         ref={inputRef}
         value={value}
         onChange={onChangeInput}
-        //(event) => setSearchValue(event.target.value)
         className={styles.input}
         placeholder="search"
       />

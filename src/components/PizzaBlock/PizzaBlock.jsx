@@ -1,22 +1,16 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addItemPizza } from '../../redux/slices/cartSlice';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addItemPizza } from "../../redux/slices/cartSlice";
 
-const pizzaTypes = ['thin', 'traditional'];
+const pizzaTypes = ["thin", "traditional"];
 
 const PizzaBlock = ({ id, title, price, imgUrl, sizes, types }) => {
-  // const [count, setCount] = React.useState(0);
-  // const a = () => {
-  //   setCount(count + 1);
-  // };
   const dispatch = useDispatch();
-  const cartItem = useSelector((state) => state.cart.itemsPizzasCart.find((obj) => obj.id == id));
+  const cartItem = useSelector((state) =>
+    state.cart.itemsPizzasCart.find((obj) => obj.id == id)
+  );
   const [activeLinkSize, setActiveLinkSize] = React.useState(0);
   const [activeLinkType, setActiveLinkType] = React.useState(0);
-
-  // const activeLinkSizePizza = (index) => {
-  //   setActiveLinkSize(index);
-  // };
 
   const activeLinkTypePizza = (index) => {
     setActiveLinkType(index);
@@ -46,7 +40,8 @@ const PizzaBlock = ({ id, title, price, imgUrl, sizes, types }) => {
               <li
                 key={i}
                 onClick={() => activeLinkTypePizza(i)}
-                className={activeLinkType === i ? 'active' : ''}>
+                className={activeLinkType === i ? "active" : ""}
+              >
                 {pizzaTypes[i]}
               </li>
             ))}
@@ -56,7 +51,8 @@ const PizzaBlock = ({ id, title, price, imgUrl, sizes, types }) => {
               <li
                 key={i}
                 onClick={() => setActiveLinkSize(i)}
-                className={activeLinkSize === i ? 'active' : ''}>
+                className={activeLinkSize === i ? "active" : ""}
+              >
                 {index} cm
               </li>
             ))}
@@ -64,13 +60,17 @@ const PizzaBlock = ({ id, title, price, imgUrl, sizes, types }) => {
         </div>
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">{price} zł</div>
-          <button onClick={onClickAdd} className="button button--outline button--add">
+          <button
+            onClick={onClickAdd}
+            className="button button--outline button--add"
+          >
             <svg
               width="12"
               height="12"
               viewBox="0 0 12 12"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
                 fill="white"

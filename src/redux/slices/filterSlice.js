@@ -1,16 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   categoryId: 0,
   currentPage: 1,
   sort: {
-    name: 'title (a-z)',
-    sortProperty: '-title',
+    name: "title (a-z)",
+    sortProperty: "-title",
   },
 };
 
 const filterSlice = createSlice({
-  name: 'filters',
+  name: "filters",
   initialState,
   reducers: {
     setCategoryId(state, action) {
@@ -22,11 +22,6 @@ const filterSlice = createSlice({
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
     },
-    // setFilters(state, action) {
-    //   state.categoryId = Number(action.payload.categoryId);
-    //   state.currentPage = Number(action.payload.categoryId);
-    //   state.sort = action.payload.sort;
-    // },
   },
 });
 

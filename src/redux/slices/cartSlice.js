@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   totalPrice: 0,
@@ -7,17 +7,13 @@ const initialState = {
 };
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
-    // addItemPizza(state, action) {
-    //   state.itemsPizzasCart.push(action.payload);
-    //   state.totalPrice = state.itemsPizzasCart.reduce((sum, obj) => {
-    //     return obj.price + sum;
-    //   }, state.firstPrice);
-    // },
     addItemPizza(state, action) {
-      const findItemId = state.itemsPizzasCart.find((obj) => obj.id == action.payload.id);
+      const findItemId = state.itemsPizzasCart.find(
+        (obj) => obj.id == action.payload.id
+      );
       if (findItemId) {
         findItemId.count++;
       } else {
@@ -32,18 +28,22 @@ const cartSlice = createSlice({
     },
 
     minusItem(state, action) {
-      const findItemId = state.itemsPizzasCart.find((obj) => obj.id == action.payload);
+      const findItemId = state.itemsPizzasCart.find(
+        (obj) => obj.id == action.payload
+      );
       if (findItemId) {
-        //&& findItemId.count > 0  то if вписати в дужках
-        //state.totalPrice -= findItemId.price;
         state.totalPrice = state.totalPrice - findItemId.price;
         findItemId.count--;
       }
     },
 
     removeItemPizza(state, action) {
-      const findItemId = state.itemsPizzasCart.find((obj) => obj.id == action.payload);
-      state.itemsPizzasCart = state.itemsPizzasCart.filter((obj) => obj.id !== action.payload);
+      const findItemId = state.itemsPizzasCart.find(
+        (obj) => obj.id == action.payload
+      );
+      state.itemsPizzasCart = state.itemsPizzasCart.filter(
+        (obj) => obj.id !== action.payload
+      );
       state.totalPrice = state.totalPrice - findItemId.price * findItemId.count;
     },
     clearCartPizzas(state, action) {
@@ -53,6 +53,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItemPizza, removeItemPizza, minusItem, clearCartPizzas } = cartSlice.actions;
+export const { addItemPizza, removeItemPizza, minusItem, clearCartPizzas } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
